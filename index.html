@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página con características específicas</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url('descargar.gif'); /* Ruta a tu archivo GIF */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        margin: 0;
+        padding: 0;
+        color: #ffffff; /* Color de texto blanco */
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 20px;
+    }
+    .image-rotator {
+        position: relative;
+        margin-bottom: 20px;
+        height: 300px; /* Altura ajustable según las imágenes */
+        overflow: hidden;
+    }
+    .image-rotator img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 20%; /* Asegura que la imagen ocupe como mínimo el ancho del contenedor */
+        min-height: 20%; /* Asegura que la imagen ocupe como mínimo la altura del contenedor */
+        width: auto;
+        height: auto;
+        max-width: none; /* Importante: permite que la imagen pueda ser más ancha que su tamaño natural */
+        max-height: none; /* Importante: permite que la imagen pueda ser más alta que su tamaño natural */
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+    .image-rotator img.active {
+        opacity: 1;
+    }
+    .caption {
+        margin-top: 10px;
+        font-size: 16px;
+        color: #ffffff;
+        text-shadow: 4px 4px 4px rgba(0, 18, 0, 0.8); /* Sombra para mejorar legibilidad */
+    }
+    .social-links {
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo transparente */
+        padding: 20px;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .social-links a {
+        display: inline-block;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 10px 20px;
+        margin: 0 10px;
+        border: 1px solid #333333; /* Borde del enlace */
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .social-links a:hover {
+        background-color: #ffffff; /* Cambio de color de fondo al pasar el ratón */
+        color: #ffffff; /* Cambio de color de texto al pasar el ratón */
+    }
+    .social-links h2 {
+        font-size: 20px;
+        font-weight: normal;
+        color: #ffffff;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+
+<audio autoplay loop>
+    <source src="musica.wav" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+    </audio>
+
+<div class="container">
+    <div class="image-rotator">
+        <img src="image1.jpg" alt="Imagen 1" class="active">
+        <img src="image2.jpg" alt="Imagen 2">
+        <img src="image3.jpg" alt="Imagen 3">
+        <img src="image4.jpg" alt="Imagen 4">
+        <!-- Añadir más imágenes según sea necesario -->
+    </div>
+    <div class="caption">
+        <p>el apocalipsis no fue un final abrupto, sino la culminación de un ciclo de percepción. 
+            fue el momento en que las sombras se alzaron y la verdad se manifestó desnuda 
+            frente a los ojos humanos. la tierra tembló con el peso de las decisiones pasadas, 
+            mientras el alma colectiva se enfrentaba a su propia verdad.</p>
+    </div>
+
+    <div class="social-links">
+        <h2>hago musica y que</h2>
+        <a href="https://www.youtube.com/channel/UCAKTrK-ruxrvmA5IKHOPlfg" target="_blank">YouTube</a>
+        <a href="https://twitter.com/nikkiexdjaja" target="_blank">Twitter</a>
+        <a href="https://www.instagram.com/noestoy.loco/" target="_blank">Instagram</a>
+        <a href="https://open.spotify.com/intl-es/artist/5UmuxLRMuSL5tfYmJfE60U?si=fACFHVmtTsWUyi6CEpDRlg" target="_blank">Spotify</a>
+    </div>
+</div>
+
+<script>
+    // Script para rotar las imágenes cada cierto tiempo
+    const images = document.querySelectorAll('.image-rotator img');
+    let index = 0;
+
+    function rotateImages() {
+        images[index].classList.remove('active');
+        index = (index + 1) % images.length;
+        images[index].classList.add('active');
+    }
+
+    setInterval(rotateImages, 3000); // Cambiar imagen cada 3 segundos (3000 ms)
+</script>
+
+</body>
+</html>
